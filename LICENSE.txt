@@ -1,2 +1,3 @@
 Copyright (c) 2026 SunsetDN(낮밤사이) All rights reserved.
 You can't redistribute this software without permission.
+

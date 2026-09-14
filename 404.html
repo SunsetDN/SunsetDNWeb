@@ -1,62 +1,44 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="ko" data-theme="day">
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>페이지를 찾을 수 없습니다 - 낮밤사이</title>
+  <script>(function(){try{var saved=localStorage.getItem("sunsetdn-theme");var night=saved?saved==="night":window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",night);document.documentElement.dataset.theme=night?"night":"day";}catch(error){}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&amp;family=Noto+Sans+KR:wght@400;600;800;900&amp;display=swap" rel="stylesheet">
+  <link href="css/brand.css" rel="stylesheet">
   <style>
-    * {
-      line-height: 1.2;
-      margin: 0;
-    }
-
-    html {
-      color: #888;
-      display: table;
-      font-family: sans-serif;
-      height: 100%;
-      text-align: center;
-      width: 100%;
-    }
-
-    body {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 2em auto;
-    }
-
-    h1 {
-      color: #555;
-      font-size: 2em;
-      font-weight: 400;
-    }
-
-    p {
-      margin: 0 auto;
-      width: 280px;
-    }
-
-    @media only screen and (max-width: 280px) {
-
-      body,
-      p {
-        width: 95%;
-      }
-
-      h1 {
-        font-size: 1.5em;
-        margin: 0 0 0.3em;
-      }
-
-    }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; font-family: "Noto Sans KR", Inter, sans-serif; }
+    .not-found { position: relative; display: grid; min-height: 100vh; overflow: hidden; padding: 32px; background: linear-gradient(135deg, #fff9e6 0 50%, #073d73 50% 100%); place-items: center; }
+    .not-found::before { position: absolute; inset: 0; background-image: linear-gradient(rgba(8,36,66,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(8,36,66,.04) 1px, transparent 1px); background-size: 44px 44px; content: ""; }
+    .not-found__card { position: relative; z-index: 1; width: min(100%, 620px); padding: clamp(34px, 7vw, 64px); border: 1px solid rgba(255,255,255,.7); border-radius: 30px; background: rgba(255,255,255,.91); box-shadow: 0 30px 80px rgba(4,29,57,.22); text-align: center; backdrop-filter: blur(18px); }
+    .not-found__logo { width: 104px; height: 104px; margin-bottom: 22px; border: 5px solid #fff; border-radius: 50%; box-shadow: 0 16px 36px rgba(8,36,66,.2); }
+    .not-found__code { display: block; margin-bottom: 5px; color: #07818d; font: 800 .72rem/1 Inter, sans-serif; letter-spacing: .18em; }
+    h1 { margin: 0; color: #082442; font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 900; letter-spacing: -.055em; }
+    p { max-width: 420px; margin: 16px auto 28px; color: #5d6d7f; font-size: .98rem; line-height: 1.7; }
+    a { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 0 24px; border-radius: 14px; background: linear-gradient(135deg, #ffb800, #f39a0b); box-shadow: 0 13px 26px rgba(243,154,11,.25); color: #082442; font-size: .9rem; font-weight: 800; text-decoration: none; }
+    .dark .not-found { background: linear-gradient(135deg, #0c3d68 0 50%, #03152d 50% 100%); }
+    .dark .not-found::before { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); }
+    .dark .not-found__card { border-color: rgba(255,255,255,.12); background: rgba(7,28,52,.9); box-shadow: 0 30px 80px rgba(0,6,18,.46); }
+    .dark h1 { color: #f4f8fc; }
+    .dark p { color: #aec0d0; }
+    .dark .not-found__code { color: #74d8d8; }
+    @media (max-width: 520px) { .not-found { padding: 18px; } .not-found__card { border-radius: 22px; } }
   </style>
 </head>
-
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+  <main class="not-found">
+    <section class="not-found__card" aria-labelledby="not-found-title">
+      <img class="not-found__logo" src="img/logo.png" alt="낮밤사이 로고">
+      <span class="not-found__code">404 · BETWEEN DAY &amp; NIGHT</span>
+      <h1 id="not-found-title">길을 잃은 장면이에요.</h1>
+      <p>찾으시는 페이지가 사라졌거나 주소가 달라졌습니다. 낮밤사이의 첫 장면으로 돌아가 다시 둘러보세요.</p>
+      <a href="index.html">메인으로 돌아가기</a>
+    </section>
+  </main>
 </body>
-
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->
