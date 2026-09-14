@@ -196,7 +196,7 @@ function buildMembersPage() {
     <div class="technical-members-grid">${technicalCards}</div>
   </div>
 </section>`;
-  return page("members", "팀원 소개 - 낮밤사이 (sunsetdn)", "유튜브 크리에이티브 팀 낮밤사이의 팀원 소개 페이지입니다.", body);
+  return page("members", "팀원 소개 - 낮밤사이 (sunsetdn)", "낮밤사이의 확인된 팀원 정보를 소개합니다.", body);
 }
 
 function roleGroup(title, icon, iconColorClass, description, members) {
@@ -216,48 +216,51 @@ function roleGroup(title, icon, iconColorClass, description, members) {
 }
 
 function buildTechPage() {
+  const namesWithAnyRole = (...roles) =>
+    MEMBERS.filter((member) => member.roles.some((role) => roles.includes(role))).map((member) => member.name);
+
   const groups = [
     roleGroup(
       "운영진 (사장 / 총관리)",
       "workspace_premium",
       "text-primary",
       "채널 전체 운영과 관리를 맡은 직군입니다.",
-      ["힘내"]
+      namesWithAnyRole("사장", "총관리자")
     ),
     roleGroup(
       "매니저",
       "supervisor_account",
       "text-primary",
       "멤버 관리와 팀 운영 전반을 조율합니다.",
-      ["베리", "소유", "자연현상"]
+      namesWithAnyRole("매니저")
     ),
     roleGroup(
       "편집",
       "movie_edit",
       "text-primary-container",
       "영상 편집과 컷 구성을 담당합니다.",
-      ["베리 (편집장)", "이람"]
+      namesWithAnyRole("편집장", "편집")
     ),
     roleGroup(
-      "기획 / 홍보",
+      "기획",
       "lightbulb",
       "text-tertiary",
-      "콘텐츠 기획과 채널 홍보를 맡은 직군입니다.",
-      ["자연현상 (기획장)"]
+      "콘텐츠 기획을 맡은 직군입니다.",
+      namesWithAnyRole("기획장", "기획")
     ),
     roleGroup(
-      "콘텐츠 제작",
+      "콘텐츠 보조",
       "sports_esports",
       "text-primary",
-      "놀이·게임 콘텐츠와 제작 보조 업무를 담당합니다.",
-      ["피리", "이노"]
+      "콘텐츠 보조 역할을 맡은 멤버입니다.",
+      namesWithAnyRole("컨텐츠 보조")
     ),
     roleGroup(
       "일반 멤버",
       "group",
       "text-on-surface",
-      "각자의 채널에서 활동하며 팀을 구성하는 멤버들입니다.",
-      ["곰재", "모카나리아", "샛노란", "서아진", "인영"]
+      "별도 직군이 등록되지 않은 멤버입니다.",
+      MEMBERS.filter((member) => member.roles.length === 1 && member.roles[0] === "멤버").map((member) => member.name)
     ),
   ].join("\n");
 
@@ -270,14 +273,14 @@ function buildTechPage() {
       <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
         직군 소개 <span class="text-on-surface-variant text-label-lg font-normal block sm:inline sm:ml-space-xs">(팀 내 역할 구분)</span>
       </h1>
-      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">낮밤사이는 운영, 매니징먼트, 편집, 기획/홍보, 콘텐츠 제작까지 역할을 나누어 운영되는 팀입니다. 아래는 현재 확인된 직군별 구성입니다.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">팀원이 직접 등록한 역할을 기준으로 정리한 현재 직군 구성입니다.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
       ${groups}
     </div>
   </div>
 </section>`;
-  return page("tech", "직군 소개 - 낮밤사이 (sunsetdn)", "낮밤사이 팀의 역할과 직군 구성을 소개합니다.", body);
+  return page("tech", "직군 소개 - 낮밤사이 (sunsetdn)", "낮밤사이 팀에서 확인된 역할과 직군을 소개합니다.", body);
 }
 
 fs.writeFileSync(path.join(ROOT, "members.html"), buildMembersPage(), "utf8");
