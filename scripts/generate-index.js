@@ -63,7 +63,7 @@ const body = `<section class="brand-hero" id="hero">
       <div class="flex flex-col gap-space-xs">
         <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">사이트 둘러보기</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
         <a class="group p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm flex flex-col justify-between gap-space-md" href="members.html">
           <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm"><span class="material-symbols-outlined text-[26px]">group</span></div>
           <div><h3 class="font-headline-md text-headline-md text-on-surface">팀원 소개</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">확인된 크루 멤버 정보를 소개합니다.</p></div>
@@ -74,14 +74,9 @@ const body = `<section class="brand-hero" id="hero">
           <div><h3 class="font-headline-md text-headline-md text-on-surface">직군 소개</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">확인된 역할과 직군을 소개합니다.</p></div>
           <span class="font-label-sm text-label-sm text-primary font-semibold inline-flex items-center gap-1">바로가기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
         </a>
-        <a class="group p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm flex flex-col justify-between gap-space-md" href="projects.html">
-          <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm"><span class="material-symbols-outlined text-[26px]">movie</span></div>
-          <div><h3 class="font-headline-md text-headline-md text-on-surface">콘텐츠 / 영상</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">등록된 콘텐츠 ${PUBLIC_STATS.projects}개</p></div>
-          <span class="font-label-sm text-label-sm text-primary font-semibold inline-flex items-center gap-1">바로가기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
-        </a>
-        <a class="group p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm flex flex-col justify-between gap-space-md" href="activity.html">
-          <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm"><span class="material-symbols-outlined text-[26px]">timeline</span></div>
-          <div><h3 class="font-headline-md text-headline-md text-on-surface">활동 기록</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">등록된 활동 기록이 없습니다.</p></div>
+        <a class="group p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm flex flex-col justify-between gap-space-md" href="commission.html">
+          <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm"><span class="material-symbols-outlined text-[26px]">handshake</span></div>
+          <div><h3 class="font-headline-md text-headline-md text-on-surface">커미션 신청</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">디스코드로 외주 문의를 받습니다.</p></div>
           <span class="font-label-sm text-label-sm text-primary font-semibold inline-flex items-center gap-1">바로가기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
         </a>
       </div>
