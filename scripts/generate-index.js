@@ -3,8 +3,8 @@ const path = require("path");
 const { page, ROOT } = require("./build-pages");
 const { MEMBERS } = require("./members-data");
 
-// Only verified data is shown here. Unknown public metrics stay at zero until
-// the team provides an official value.
+// Unknown public metrics stay at zero until the team provides an official
+// value. The subscriber count is replaced at runtime by js/app.js.
 const PUBLIC_STATS = {
   subscribers: 0,
   projects: 0,
@@ -53,7 +53,7 @@ const body = `<section class="brand-hero" id="hero">
       </div>
       <dl class="brand-stats__numbers">
         <div><dt>${MEMBERS.length}명</dt><dd>확인된 크루 멤버</dd></div>
-        <div><dt>${PUBLIC_STATS.subscribers}명</dt><dd>등록된 구독자 수</dd></div>
+        <div><dt aria-live="polite" data-youtube-subscriber-count>${PUBLIC_STATS.subscribers}명</dt><dd>구독자 수</dd></div>
         <div><dt>${PUBLIC_STATS.projects}개</dt><dd>등록된 콘텐츠</dd></div>
       </dl>
     </div>
@@ -85,7 +85,13 @@ const body = `<section class="brand-hero" id="hero">
 
 fs.writeFileSync(
   path.join(ROOT, "index.html"),
-  page("about", "낮밤사이 (sunsetdn) 공식 웹사이트", "낮밤사이 공식 웹사이트입니다.", body),
+  page(
+    "about",
+    "낮밤사이 (sunsetdn) 공식 웹사이트",
+    "낮밤사이 공식 웹사이트입니다.",
+    body,
+    '<script defer src="js/app.js"></script>'
+  ),
   "utf8"
 );
 console.log("index.html generated");

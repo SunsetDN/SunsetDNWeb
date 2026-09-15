@@ -45,7 +45,7 @@
       </div>
       <dl class="brand-stats__numbers">
         <div><dt>12명</dt><dd>확인된 크루 멤버</dd></div>
-        <div><dt>0명</dt><dd>등록된 구독자 수</dd></div>
+        <div><dt aria-live="polite" data-youtube-subscriber-count>0명</dt><dd>구독자 수</dd></div>
         <div><dt>0개</dt><dd>등록된 콘텐츠</dd></div>
       </dl>
     </div>
@@ -75,6 +75,6 @@
     </div>
   </section>
 </div></main><footer class="site-footer w-full bg-surface-container-low text-on-surface-variant"><div class="max-w-7xl mx-auto px-margin lg:px-margin-lg py-space-xl"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="" aria-hidden="true" class="site-footer__logo" src="img/logo.png"/><span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">낮밤사이</span><span class="font-label-sm text-label-sm text-on-surface-variant">SUNSETDN</span></div><div class="site-footer__bottom pt-space-md font-label-sm text-label-sm text-on-surface-variant"><p>© 2026 낮밤사이 (sunsetdn). All rights reserved.</p></div></div></div></footer>
-
+<script defer src="js/app.js"></script>
 <script>(function(){var root=document.documentElement;var controls=document.querySelectorAll("[data-theme-toggle]");function sync(){var night=root.classList.contains("dark");root.dataset.theme=night?"night":"day";controls.forEach(function(button){button.setAttribute("aria-pressed",String(night));button.setAttribute("aria-label",night?"낮 모드로 전환":"밤 모드로 전환");button.title=night?"낮 모드로 전환":"밤 모드로 전환";var label=button.querySelector("[data-theme-label]");if(label)label.textContent=night?"현재 밤 모드":"현재 낮 모드";});}controls.forEach(function(button){button.addEventListener("click",function(){var night=!root.classList.contains("dark");root.classList.add("theme-changing");root.classList.toggle("dark",night);try{localStorage.setItem("sunsetdn-theme",night?"night":"day");}catch(error){}sync();window.setTimeout(function(){root.classList.remove("theme-changing");},350);});});sync();})();</script>
 </body></html>
