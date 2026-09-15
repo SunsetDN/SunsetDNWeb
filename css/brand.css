@@ -711,9 +711,7 @@ button:focus-visible {
 #sitemap h2,
 #members h1,
 #tech h1,
-#projects h1,
-#activity h1,
-#contact h1 {
+#commission h1 {
   color: var(--brand-ink) !important;
   font-weight: 800;
   letter-spacing: -0.045em;
@@ -722,10 +720,8 @@ button:focus-visible {
 #about .rounded-xl,
 #sitemap .rounded-xl,
 #tech .rounded-xl,
-#projects article,
-#activity .rounded-xl,
-#contact .rounded-xl,
-#contact .rounded-2xl {
+#commission .rounded-xl,
+#commission .rounded-2xl {
   border: 1px solid var(--brand-line);
   border-radius: 22px !important;
   background: rgba(248, 251, 254, 0.94) !important;
@@ -744,8 +740,7 @@ button:focus-visible {
 #about .hover\:bg-surface-container:hover,
 #sitemap a:hover,
 #tech .rounded-xl:hover,
-#projects article:hover,
-#contact a.rounded-xl:hover {
+#commission a.rounded-xl:hover {
   transform: translateY(-4px);
   border-color: rgba(7, 143, 145, 0.24);
   background: #fff !important;
@@ -776,9 +771,7 @@ button:focus-visible {
 
 #members,
 #tech,
-#projects,
-#activity,
-#contact {
+#commission {
   min-height: 72vh;
   padding-top: clamp(56px, 7vw, 88px) !important;
   padding-bottom: clamp(72px, 8vw, 112px) !important;
@@ -792,19 +785,11 @@ button:focus-visible {
   overflow: hidden;
 }
 
-#projects article .h-48 {
-  background:
-    radial-gradient(circle at 72% 28%, rgba(255, 213, 94, 0.9) 0 9%, transparent 10%),
-    linear-gradient(145deg, #0b568f 0 52%, #082f5a 52%) !important;
-}
-
-#activity .rounded-full {
-  border: 1px solid rgba(7, 143, 145, 0.15);
-}
-
-#contact > div > div:first-child {
+.commission-cta {
+  border: 1px solid var(--brand-line);
   background:
     linear-gradient(120deg, rgba(255, 248, 220, 0.95), rgba(232, 246, 249, 0.96)) !important;
+  box-shadow: 0 14px 35px rgba(8, 36, 66, 0.07);
 }
 
 .site-footer {
@@ -1060,9 +1045,7 @@ button:focus-visible {
   #sitemap,
   #members,
   #tech,
-  #projects,
-  #activity,
-  #contact {
+  #commission {
     padding-top: 58px !important;
     padding-bottom: 64px !important;
   }
@@ -1335,19 +1318,15 @@ button:focus-visible {
 .dark #sitemap h2,
 .dark #members h1,
 .dark #tech h1,
-.dark #projects h1,
-.dark #activity h1,
-.dark #contact h1 {
+.dark #commission h1 {
   color: #f3f8fc !important;
 }
 
 .dark #about .rounded-xl,
 .dark #sitemap .rounded-xl,
 .dark #tech .rounded-xl,
-.dark #projects article,
-.dark #activity .rounded-xl,
-.dark #contact .rounded-xl,
-.dark #contact .rounded-2xl {
+.dark #commission .rounded-xl,
+.dark #commission .rounded-2xl {
   border-color: rgba(255, 255, 255, 0.09);
   background: rgba(13, 36, 60, 0.92) !important;
   box-shadow: 0 18px 42px rgba(0, 8, 22, 0.24) !important;
@@ -1360,8 +1339,7 @@ button:focus-visible {
 .dark #about .hover\:bg-surface-container:hover,
 .dark #sitemap a:hover,
 .dark #tech .rounded-xl:hover,
-.dark #projects article:hover,
-.dark #contact a.rounded-xl:hover {
+.dark #commission a.rounded-xl:hover {
   border-color: rgba(97, 208, 209, 0.25);
   background: #112d49 !important;
   box-shadow: 0 24px 48px rgba(0, 7, 19, 0.34) !important;
@@ -1369,16 +1347,15 @@ button:focus-visible {
 
 .dark #members,
 .dark #tech,
-.dark #projects,
-.dark #activity,
-.dark #contact {
+.dark #commission {
   background:
     radial-gradient(circle at 92% 0, rgba(38, 155, 177, 0.13), transparent 27rem),
     radial-gradient(circle at 4% 6%, rgba(255, 184, 0, 0.08), transparent 23rem),
     #061629;
 }
 
-.dark #contact > div > div:first-child {
+.dark .commission-cta {
+  border-color: rgba(255, 255, 255, 0.09);
   background: linear-gradient(120deg, rgba(34, 51, 61, 0.96), rgba(10, 48, 67, 0.96)) !important;
 }
 
