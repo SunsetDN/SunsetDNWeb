@@ -1,16 +1,17 @@
 {
-  "name": " ",
+  "name": "sunsetdnweb",
   "version": "0.0.1",
-  "description": "",
+  "description": "낮밤사이(SunsetDN) 공식 웹사이트",
   "private": true,
   "keywords": [
-    ""
+    "sunsetdn",
+    "낮밤사이"
   ],
-  "license": "",
-  "author": "",
+  "license": "UNLICENSED",
+  "author": "SunsetDN(낮밤사이)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate:pages": "node scripts/generate-index.js && node scripts/generate.js && node scripts/generate-legacy-pages.js",
+    "generate:pages": "node scripts/generate-index.js && node scripts/generate.js && node scripts/generate-commission.js",
     "build:css": "tailwindcss -c tailwind.config.js -i ./css/tailwind-src.css -o ./css/tailwind.css --minify",
     "watch:css": "tailwindcss -c tailwind.config.js -i ./css/tailwind-src.css -o ./css/tailwind.css --watch",
     "start": "webpack serve --open --config webpack.config.dev.js",
