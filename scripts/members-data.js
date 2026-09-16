@@ -14,7 +14,7 @@ const MEMBERS = [
       { label: "치지직", icon: "live_tv", url: "https://chzzk.naver.com/53aabce8d0ad942469385c79d9325785" },
       { label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@himnae" },
     ],
-    image: "img/members/himnae.png",
+    image: "img/members/himnae.webp",
     note: null,
   },
   {
@@ -30,7 +30,7 @@ const MEMBERS = [
       { label: "치지직", icon: "live_tv", url: "https://chzzk.naver.com/4c31baa1c07fe4acc82ae135a5bd50d4" },
       { label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@베리의잡동사니" },
     ],
-    image: "img/members/bery.png",
+    image: "img/members/bery.webp",
     note: null,
   },
   {
@@ -43,7 +43,7 @@ const MEMBERS = [
     colorLabel: "하얀색",
     oneLiner: null,
     links: [{ label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@kr_so_you" }],
-    image: "img/members/soyu.png",
+    image: "img/members/soyu.webp",
     note: null,
   },
   {
@@ -69,7 +69,7 @@ const MEMBERS = [
     colorLabel: "연한 회색",
     oneLiner: "오이데~",
     links: [{ label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@jayeonhyeonsang" }],
-    image: "img/members/jayeonhyeonsang.png",
+    image: "img/members/jayeonhyeonsang.webp",
     note: null,
   },
   {
@@ -82,7 +82,7 @@ const MEMBERS = [
     colorLabel: "검은색",
     oneLiner: "노는게 제일 좋은 청년입니다",
     links: [{ label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@gomjae-b5t" }],
-    image: "img/members/gomjae.png",
+    image: "img/members/gomjae.webp",
     note: null,
   },
   {
@@ -99,7 +99,7 @@ const MEMBERS = [
       { label: "치지직", icon: "live_tv", url: "https://chzzk.naver.com/991cb034fe860159448e6fd456c4f335" },
       { label: "인스타그램", icon: "photo_camera", url: "https://www.instagram.com/kyeong72ram/" },
     ],
-    image: "img/members/guengchlieram.png",
+    image: "img/members/guengchlieram.webp",
     note: null,
   },
   {
@@ -115,7 +115,7 @@ const MEMBERS = [
       { label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@MOKAnaRIA-b9z" },
       { label: "치지직", icon: "live_tv", url: "https://chzzk.naver.com/59723e617a5ee261e4d7c3797bc1e27f" },
     ],
-    image: "img/members/mokanaria.png",
+    image: "img/members/mokanaria.webp",
     note: null,
   },
   {
@@ -128,7 +128,7 @@ const MEMBERS = [
     colorLabel: null,
     oneLiner: "두마디",
     links: [{ label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@샛노란NORAN" }],
-    image: "img/members/satnoran.png",
+    image: "img/members/satnoran.webp",
     note: null,
   },
   {
@@ -141,7 +141,7 @@ const MEMBERS = [
     colorLabel: "핑크 라벤더",
     oneLiner: "열심히 해봅시다",
     links: [{ label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@tjdkwls" }],
-    image: "img/members/seoeajin.png",
+    image: "img/members/seoeajin.webp",
     note: null,
   },
   {
@@ -157,7 +157,7 @@ const MEMBERS = [
       { label: "치지직", icon: "live_tv", url: "https://chzzk.naver.com/54e9124f5e6f4d399ec2ad7378ce2d46/about" },
       { label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/channel/UC3zRU9tt_dxhmgZymH1zkfQ" },
     ],
-    image: "img/members/piri.png",
+    image: "img/members/piri.webp",
     note: null,
   },
   {
@@ -170,7 +170,7 @@ const MEMBERS = [
     colorLabel: "연두 · 빨강",
     oneLiner: "즐겁게 놀아봅시다.",
     links: [{ label: "유튜브", icon: "smart_display", url: "https://www.youtube.com/@inyeong0516" }],
-    image: "img/members/inyoung.png",
+    image: "img/members/inyoung.webp",
     note: null,
   },
 ];

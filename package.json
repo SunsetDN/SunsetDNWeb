@@ -11,7 +11,7 @@
   "author": "SunsetDN(낮밤사이)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate:pages": "node scripts/generate-index.js && node scripts/generate.js && node scripts/generate-commission.js",
+    "generate:pages": "node scripts/generate-index.js && node scripts/generate.js && node scripts/generate-commission.js && node scripts/generate-sitemap.js",
     "build:css": "tailwindcss -c tailwind.config.js -i ./css/tailwind-src.css -o ./css/tailwind.css --minify",
     "watch:css": "tailwindcss -c tailwind.config.js -i ./css/tailwind-src.css -o ./css/tailwind.css --watch",
     "start": "webpack serve --open --config webpack.config.dev.js",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.6.0",
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.4.17",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",

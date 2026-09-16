@@ -12,6 +12,48 @@
   --brand-shadow: 0 24px 60px rgba(8, 36, 66, 0.12);
 }
 
+/* Native cross-document View Transitions between pages (progressive
+   enhancement — unsupported browsers just navigate normally). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* The day/night toggle drives its own circular-reveal transition (see the
+   inline theme script), so the browser's default cross-fade is switched off
+   only while that same-document transition is running. */
+html.theme-changing::view-transition-old(root),
+html.theme-changing::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Scroll-driven reveal for card grids. Browsers without support for
+   animation-timeline: view() (or with reduced motion) simply skip this
+   block, so content is never hidden without a way to reveal it. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal-on-scroll {
+      animation: reveal-rise linear both;
+      animation-range: entry 0% cover 35%;
+      animation-timeline: view();
+    }
+
+    @keyframes reveal-rise {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  }
+}
+
 html {
   background: #f7f9fc;
 }

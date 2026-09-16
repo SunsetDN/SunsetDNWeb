@@ -12,7 +12,7 @@ const FIELDS = [
 ];
 
 function fieldCard(field) {
-  return `<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+  return `<div class="reveal-on-scroll p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
   <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary shadow-sm shrink-0">
     <span class="material-symbols-outlined text-[26px]">${field.icon}</span>
   </div>
@@ -60,7 +60,8 @@ function buildCommissionPage() {
     "commission",
     "커미션 · 외주 신청 - 낮밤사이 (sunsetdn)",
     "낮밤사이 크루에게 커미션/외주 작업을 디스코드로 문의할 수 있습니다.",
-    body
+    body,
+    "commission.html"
   );
 }
 
