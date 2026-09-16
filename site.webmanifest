@@ -1,12 +1,13 @@
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "낮밤사이",
+  "name": "낮밤사이 (SUNSETDN)",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
   "start_url": "/?utm_source=homescreen",
-  "background_color": "#fafafa",
-  "theme_color": "#fafafa"
+  "display": "standalone",
+  "background_color": "#f8f9ff",
+  "theme_color": "#fff8df"
 }

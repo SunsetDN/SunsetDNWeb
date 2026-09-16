@@ -15,7 +15,7 @@ const TECH_MEMBERS = [
     color: "#667AFF",
     colorLabel: "파란색",
     message: "잘 부탁드립니다!!",
-    image: "img/tech/juju.png",
+    image: "img/tech/juju.webp",
     links: [
       { label: "YouTube", icon: "smart_display", url: "https://youtube.com/@hisojj-515?si=taljW0CA7sQBeEJH" },
       { label: "X", icon: "alternate_email", url: "https://x.com/_hisojj__" },
@@ -29,7 +29,7 @@ const TECH_MEMBERS = [
     color: "#BDCCD6",
     colorLabel: "푸른색",
     message: "열심히 하겠습니다! 잘 부탁 드려용~",
-    image: "img/tech/banz.png",
+    image: "img/tech/banz.webp",
     links: [
       { label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@banz_601" },
       { label: "Littly", icon: "link", url: "https://litt.ly/banz" },
@@ -42,7 +42,7 @@ const TECH_MEMBERS = [
     color: "#E0F7FA",
     colorLabel: "청색 계열",
     message: "잘부탁드립니다",
-    image: "img/tech/parin.png",
+    image: "img/tech/parin.webp",
     links: [
       { label: "CHZZK", icon: "live_tv", url: "https://chzzk.parin.asia/" },
       { label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@koroutine" },
@@ -57,7 +57,7 @@ const TECH_MEMBERS = [
     color: "#A8968D",
     colorLabel: "연갈색",
     message: "안녕하세요",
-    image: "img/tech/n.png",
+    image: "img/tech/n.webp",
     links: [],
   },
   {
@@ -67,7 +67,7 @@ const TECH_MEMBERS = [
     color: "#000DFF",
     colorLabel: "메인 컬러",
     message: "잘 부탁드립니다",
-    image: "img/tech/cloud.png",
+    image: "img/tech/cloud.webp",
     links: [{ label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@Cloud_11115" }],
   },
   {
@@ -77,7 +77,7 @@ const TECH_MEMBERS = [
     color: "#A01313",
     colorLabel: "메인 컬러",
     message: "열심히 하겠습니다",
-    image: "img/tech/oliva.png",
+    image: "img/tech/oliva.webp",
     links: [{ label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@올리바O/videos" }],
   },
 ];
@@ -104,7 +104,7 @@ function memberCard(member, index) {
         .join("")
     : `<span class="technical-card__no-link">공개된 활동 링크 없음</span>`;
 
-  return `<article class="technical-card member-profile-card" style="--member-color:${esc(accent)}">
+  return `<article class="technical-card member-profile-card reveal-on-scroll" style="--member-color:${esc(accent)}">
   <div class="technical-card__visual">
     <span class="technical-card__number">MEMBER ${String(index + 1).padStart(2, "0")}</span>
     ${portrait}
@@ -140,7 +140,7 @@ function technicalMemberCard(member, index) {
         .join("")
     : `<span class="technical-card__no-link">공개된 활동 링크 없음</span>`;
 
-  return `<article class="technical-card" style="--member-color:${esc(member.color)}">
+  return `<article class="technical-card reveal-on-scroll" style="--member-color:${esc(member.color)}">
   <div class="technical-card__visual">
     <span class="technical-card__number">TECH ${String(index + 1).padStart(2, "0")}</span>
     <img class="technical-card__image" src="${esc(member.image)}" alt="${esc(member.name)} 캐릭터 이미지" loading="lazy"/>
@@ -196,14 +196,14 @@ function buildMembersPage() {
     <div class="technical-members-grid">${technicalCards}</div>
   </div>
 </section>`;
-  return page("members", "팀원 소개 - 낮밤사이 (sunsetdn)", "낮밤사이의 확인된 팀원 정보를 소개합니다.", body);
+  return page("members", "팀원 소개 - 낮밤사이 (sunsetdn)", "낮밤사이의 확인된 팀원 정보를 소개합니다.", body, "members.html");
 }
 
 function roleGroup(title, icon, iconColorClass, description, members) {
   const chips = members
     .map((m) => `<span class="px-2 py-0.5 rounded bg-surface font-label-sm text-label-sm text-on-secondary-container">${esc(m)}</span>`)
     .join("");
-  return `<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md hover:bg-surface-container transition-colors">
+  return `<div class="reveal-on-scroll p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md hover:bg-surface-container transition-colors">
   <div class="flex items-center gap-space-md">
     <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center ${iconColorClass} shadow-sm shrink-0">
       <span class="material-symbols-outlined text-[26px]">${icon}</span>
@@ -280,7 +280,7 @@ function buildTechPage() {
     </div>
   </div>
 </section>`;
-  return page("tech", "직군 소개 - 낮밤사이 (sunsetdn)", "낮밤사이 팀에서 확인된 역할과 직군을 소개합니다.", body);
+  return page("tech", "직군 소개 - 낮밤사이 (sunsetdn)", "낮밤사이 팀에서 확인된 역할과 직군을 소개합니다.", body, "tech.html");
 }
 
 fs.writeFileSync(path.join(ROOT, "members.html"), buildMembersPage(), "utf8");
