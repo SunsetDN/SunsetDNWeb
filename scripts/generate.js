@@ -2,95 +2,22 @@ const fs = require("fs");
 const path = require("path");
 const { page, ROOT } = require("./build-pages");
 const { MEMBERS } = require("./members-data");
+const { TECH_MEMBERS } = require("./tech-members-data");
 
 function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
-const TECH_MEMBERS = [
-  {
-    id: "juju",
-    name: "쥬쥬",
-    roles: ["믹싱"],
-    color: "#667AFF",
-    colorLabel: "파란색",
-    message: "잘 부탁드립니다!!",
-    image: "img/tech/juju.webp",
-    links: [
-      { label: "YouTube", icon: "smart_display", url: "https://youtube.com/@hisojj-515?si=taljW0CA7sQBeEJH" },
-      { label: "X", icon: "alternate_email", url: "https://x.com/_hisojj__" },
-    ],
-  },
-  {
-    id: "banz",
-    name: "반즈",
-    fullName: "BANZ",
-    roles: ["일러레"],
-    color: "#BDCCD6",
-    colorLabel: "푸른색",
-    message: "열심히 하겠습니다! 잘 부탁 드려용~",
-    image: "img/tech/banz.webp",
-    links: [
-      { label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@banz_601" },
-      { label: "Littly", icon: "link", url: "https://litt.ly/banz" },
-    ],
-  },
-  {
-    id: "parin",
-    name: "파린",
-    roles: ["개발(프로그래밍 등)", "기획"],
-    color: "#E0F7FA",
-    colorLabel: "청색 계열",
-    message: "잘부탁드립니다",
-    image: "img/tech/parin.webp",
-    links: [
-      { label: "CHZZK", icon: "live_tv", url: "https://chzzk.parin.asia/" },
-      { label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@koroutine" },
-      { label: "X", icon: "alternate_email", url: "https://x.com/palin1838982" },
-    ],
-  },
-  {
-    id: "n",
-    name: "엔",
-    fullName: "N",
-    roles: ["일러스트"],
-    color: "#A8968D",
-    colorLabel: "연갈색",
-    message: "안녕하세요",
-    image: "img/tech/n.webp",
-    links: [],
-  },
-  {
-    id: "cloud",
-    name: "cloud",
-    roles: ["편집"],
-    color: "#000DFF",
-    colorLabel: "메인 컬러",
-    message: "잘 부탁드립니다",
-    image: "img/tech/cloud.webp",
-    links: [{ label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@Cloud_11115" }],
-  },
-  {
-    id: "oliva",
-    name: "올리바",
-    roles: ["편집자"],
-    color: "#A01313",
-    colorLabel: "메인 컬러",
-    message: "열심히 하겠습니다",
-    image: "img/tech/oliva.webp",
-    links: [{ label: "YouTube", icon: "smart_display", url: "https://www.youtube.com/@올리바O/videos" }],
-  },
-];
 
 function memberCard(member, index) {
   const accent = member.color || "#299FAB";
   const portrait = member.image
-    ? `<img class="technical-card__image" src="${esc(member.image)}" alt="${esc(member.name)} 캐릭터 이미지" loading="lazy"/>`
+    ? `<img class="technical-card__image" src="${esc(member.image)}" alt="${esc(member.name)} 캐릭터 이미지" loading="lazy" data-zoomable data-zoom-caption="${esc(member.name)}" style="view-transition-name:portrait-${esc(member.id)}"/>`
     : `<div class="member-card__placeholder"><span class="material-symbols-outlined" aria-hidden="true">person</span><span>프로필 이미지 준비 중</span></div>`;
 
   const roles = member.roles.map((role) => `<span class="technical-card__role">${esc(role)}</span>`).join("");
   const color = member.color
-    ? `<div class="technical-card__color" title="${esc(member.color)}"><span style="background:${esc(member.color)}"></span><strong>${esc(member.colorLabel || "메인 컬러")}</strong><code>${esc(member.color)}</code></div>`
+    ? `<button class="technical-card__color" data-copy="${esc(member.color)}" type="button" title="${esc(member.color)} 복사"><span style="background:${esc(member.color)}"></span><strong>${esc(member.colorLabel || "메인 컬러")}</strong><code>${esc(member.color)}</code></button>`
     : "";
   const message = member.oneLiner
     ? `<blockquote class="technical-card__message"><span class="material-symbols-outlined" aria-hidden="true">format_quote</span><p>${esc(member.oneLiner)}</p></blockquote>`
@@ -104,7 +31,7 @@ function memberCard(member, index) {
         .join("")
     : `<span class="technical-card__no-link">공개된 활동 링크 없음</span>`;
 
-  return `<article class="technical-card member-profile-card reveal-on-scroll" style="--member-color:${esc(accent)}">
+  return `<article class="technical-card member-profile-card reveal-on-scroll" id="member-${esc(member.id)}" data-roles="${esc(member.roles.join("|"))}" data-name="${esc(member.name)}" style="--member-color:${esc(accent)}">
   <div class="technical-card__visual">
     <span class="technical-card__number">MEMBER ${String(index + 1).padStart(2, "0")}</span>
     ${portrait}
@@ -140,10 +67,10 @@ function technicalMemberCard(member, index) {
         .join("")
     : `<span class="technical-card__no-link">공개된 활동 링크 없음</span>`;
 
-  return `<article class="technical-card reveal-on-scroll" style="--member-color:${esc(member.color)}">
+  return `<article class="technical-card reveal-on-scroll" id="tech-${esc(member.id)}" data-name="${esc(member.name)}" style="--member-color:${esc(member.color)}">
   <div class="technical-card__visual">
     <span class="technical-card__number">TECH ${String(index + 1).padStart(2, "0")}</span>
-    <img class="technical-card__image" src="${esc(member.image)}" alt="${esc(member.name)} 캐릭터 이미지" loading="lazy"/>
+    <img class="technical-card__image" src="${esc(member.image)}" alt="${esc(member.name)} 캐릭터 이미지" loading="lazy" data-zoomable data-zoom-caption="${esc(member.name)}" style="view-transition-name:portrait-tech-${esc(member.id)}"/>
   </div>
   <div class="technical-card__content">
     <div class="technical-card__heading">
@@ -151,17 +78,40 @@ function technicalMemberCard(member, index) {
         <p class="technical-card__eyebrow">TECHNICAL MEMBER</p>
         <h3>${esc(member.name)}${member.fullName ? `<span>${esc(member.fullName)}</span>` : ""}</h3>
       </div>
-      <div class="technical-card__color" title="${esc(member.color)}">
+      <button class="technical-card__color" data-copy="${esc(member.color)}" type="button" title="${esc(member.color)} 복사">
         <span style="background:${esc(member.color)}"></span>
         <strong>${esc(member.colorLabel)}</strong>
         <code>${esc(member.color)}</code>
-      </div>
+      </button>
     </div>
     <div class="technical-card__roles">${roles}</div>
     <blockquote class="technical-card__message"><span class="material-symbols-outlined" aria-hidden="true">format_quote</span><p>${esc(member.message)}</p></blockquote>
     <div class="technical-card__links">${links}</div>
   </div>
 </article>`;
+}
+
+// Role chips above the member grid. Filtering happens client-side inside a
+// view transition, so the remaining cards animate into their new positions.
+function roleFilter() {
+  const counts = new Map();
+  for (const member of MEMBERS) {
+    for (const role of member.roles) counts.set(role, (counts.get(role) || 0) + 1);
+  }
+
+  const chips = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(
+      ([role, count]) =>
+        `<button class="member-filter__chip" data-role-filter="${esc(role)}" type="button" aria-pressed="false">${esc(role)}<span>${count}</span></button>`
+    )
+    .join("");
+
+  return `<div class="member-filter" data-role-filters>
+    <span class="member-filter__label"><span class="material-symbols-outlined" aria-hidden="true">filter_list</span>직군 필터</span>
+    <button class="member-filter__chip is-active" data-role-filter="" type="button" aria-pressed="true">전체<span>${MEMBERS.length}</span></button>
+    ${chips}
+  </div>`;
 }
 
 function buildMembersPage() {
@@ -179,9 +129,11 @@ function buildMembersPage() {
         <a class="technical-jump" href="#technical-members"><span class="material-symbols-outlined" aria-hidden="true">engineering</span><span>기술직 ${TECH_MEMBERS.length}명</span><span class="material-symbols-outlined" aria-hidden="true">south</span></a>
       </div>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+    ${roleFilter()}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter" data-member-grid>
       ${cards}
     </div>
+    <p class="member-filter__empty" data-filter-empty hidden>선택한 직군에 해당하는 팀원이 없습니다.</p>
   </div>
 </section>
 <section class="technical-members-section" id="technical-members">
