@@ -90,8 +90,7 @@ fs.writeFileSync(
     "낮밤사이 (sunsetdn) 공식 웹사이트",
     "낮밤사이 공식 웹사이트입니다.",
     body,
-    "index.html",
-    '<script defer src="js/app.js"></script>'
+    "index.html"
   ),
   "utf8"
 );
